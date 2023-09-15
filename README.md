@@ -807,5 +807,16 @@ var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.`
 ### What are lambda or arrow functions
 
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These functions are best suited for non-method functions, and they cannot be used as constructors.
+* Arrow functions reduce the size of the code.
+* The return statement and function brackets are optional for single-line functions.
+* It increases the readability of the code.
+* Arrow functions provide a lexical this binding. It means, they inherit the value of “this” from the enclosing scope. This feature can be advantageous when dealing with event listeners or callback functions where the value of “this” can be uncertain.
+
+**Limitations of Arrow Functions**
+* Arrow functions do not have the prototype property.
+* Arrow functions cannot be used with the new keyword.
+* Arrow functions cannot be used as constructors.
+* These functions are anonymous and it is hard to debug the code.
+* Arrow functions cannot be used as generator functions that use the yield keyword to return multiple values over time.
 
 **[⬆ Back to Top](#table-of-contents)**
