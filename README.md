@@ -8,12 +8,12 @@
 
 | No. | Questions | No | Questions |
 | ----- | ------------------- | ---- | ------------------- |
-| 1 | [What is scope in javascript](#1) | | |
-| 2 | [What are the differences between primitives and non-primitives?](#2) | | |
-| 3 | [What is the difference between null and undefined](#3) | | |
-| 4 | [What is the difference between == and === operators](#4) | | |
-| 5 | [What is a proto and prototype](#5) | | |
-| 6 | [What is Event Loop / call stack/ event queue](#6) | | |
+| 1 | [What is scope in javascript](#1) | 22| [ What is the purpose of the let and var keyword](#22) |
+| 2 | [What are the differences between primitives and non-primitives?](#2) | 23| [Destructuring](#23) |
+| 3 | [What is the difference between null and undefined](#3) | 24| [What is Rest and Spread Operator](#24) |
+| 4 | [What is the difference between == and === operators](#4) | 25 | [What are enhanced object literals](#25) |
+| 5 | [What is a proto and prototype](#5) | 26 | [What are Template Literals](#26) |
+| 6 | [What is Event Loop / call stack/ event queue](#6) | 27| [What are lambda or arrow functions](#27) |
 | 7 | [What is a callback function](#7) | | |
 | 8 | [What is a promise](#8) | | |
 | 9 | [Why do you need a promise](#9) | | |
@@ -22,12 +22,13 @@
 | 12| [What is an async function or async/await](#12) | | |
 | 13| [What is Hoisting](#13) | | |
 | 14| [What is closures](#14)| | |
-| 15| [](#15)| | |
-| 16| [](#16)| | |
-| 17| [](#17)| | |
-| 18| [](#18)| | |
-| 19| [](#19)| | |
-| 20| [](#20)| | |
+| 15| [What is the difference between Call, Apply and Bind](#15)| | |
+| 16| [What is the difference between Shallow and Deep copy](#16)| | |
+| 17| [What is an event propagation and bubling and capturing](#17)| | |
+| 18| [What is a strict mode in javascript](#18)| | |
+| 19| [map, filter reduce, foreach method](#19)| | |
+| 20| [What is the difference between an attribute and a property](#20)| | |
+| 21| [slice,splice, push , pop , shift , unshift methos](#21)| | |
 
 ### 1
 ### What is scope in javascript
@@ -513,5 +514,298 @@ document.querySelector('#grandparent').addEventListener('click', () => {
 }, true)
 ```
 
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 18
+### What is a strict mode in javascript
+The JavaScript provides "use strict"; expression to enable the strict mode.Strict mode is useful to write "secure" JavaScript by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
+### How do you declare strict mode
+The strict mode is declared by adding "use strict"; to the beginning of a script or a function.
+If declared at the beginning of a script, it has global scope.
+
+```javascript
+"use strict";
+x = 3.14; // This will cause an error because x is not declared
+```
+
+and if you declare inside a function, it has local scope
+
+```javascript
+x = 3.14; // This will not cause an error.
+myFunction();
+
+function myFunction() {
+"use strict";
+y = 3.14; // This will cause an error
+}
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+### 19
+### map, filter reduce, foreach method
+
+**map():** if you want to transform any array with the help of map function we can transform it
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(item => item * 2);
+console.log(doubled); // [2, 4, 6, 8] 
+```
+**filter():** filter is used when we want to filter the array to obtain required value. It creates a new array by removing elements that don’t belong and get pushed to the output array.
+```javascript
+const numbers = [1, 2, 3, 4];
+const evens = numbers.filter(item => item % 2 === 0);
+console.log(evens); // [2, 4]
+```
+
+**reduce():**  is a higher order function used in data manipulation that is used to reduce the array to a single value. Its passes two arguments one function(which includes accumulator and current value) and another initial value
+```javascript
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce(function (accumulator , current ) {
+ return accumulator + current ;
+}, 0);
+console.log(sum); // 10
+```
+* **Accumulator:** This contains the value calculated from the previous iteration. On the first iteration, if an initialValue will be provided, the accumulator will be set to the value of initialValue.
+* **CurrentValue:** The current value of the element is processed in the array.
+* **CurrentIndex:** The index of the current element is processed in the array.
+* **Array:** The original array on which the reduce() method was called.
+
+**Difference map forEach Filter Return Value**
+* map() will return a new array as per the conditions applied.
+* forEach() will not return anything. forEach() returns undefined.
+* filter()method will return an array of matching elements else will return an empty array if no matching happens.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 20
+### What is the difference between an attribute and a property
+
+Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
+
+```javascript
+<input type="text" value="Name:">
+```
+
+You can retrieve the attribute value as below,
+
+```javascript
+const input = document.querySelector("input");
+console.log(input.getAttribute("value")); // Good morning
+console.log(input.value); // Good morning
+```
+
+And after you change the value of the text field to "Good evening", it becomes like
+
+```javascript
+console.log(input.getAttribute("value")); // Good evening
+console.log(input.value); // Good evening
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 21
+### slice
+Slice method returns selected element in an array, as a new array slice method does not change the original array:
+
+`Let a = [1,2,3,4,5]    let b = a.slice(0,2)  === [1,2]`
+### splice
+splice used to add/remove item from an array. This method change the original array. `Splice(start, deleteCount, replaceValue)`
+```javascript
+Var arr = [1,2,3,4,5,6,7]
+Var arr1 = [“Piyush”, “Sid”, “Abhi”]
+arr.splice(2,1);
+//console.log(arr) === [1,2,4,5,6,7] it remove the element of index 2
+arr1.splice(2,0, “test”)
+//console.log(arr1) === [ 'Piyush', 'Sid', 'test', 'Abhi' ]
+```
+
+### push
+add new item to the end of array
+
+```javascript
+const fruits = ["Banana", "Apple"];
+fruits.push(“Mango”);
+console.log(fruits)
+["Banana", "Apple", "Mango"]
+```
+### pop
+remove the last item of an array
+```javascript
+const fruits = ["Banana", "Apple", "Mango"];
+fruits.pop(“Mango”);
+console.log(fruits)
+["Banana", "Apple"]
+```
+### shift
+Remove the first item of an array
+```javascript
+const fruits = ["Banana", "Apple", "Mango"];
+fruits.shift()
+console.log(fruits)
+[ "Apple”, “Mango”]
+```
+### unshift 
+Add new item at the begginning of the array.
+```javascript
+const fruits = [ "Apple", "Mango"];
+fruits.unshift(“Banana”) onsole.log(fruits)
+["Banana", "Apple", "Mango"]
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### 22
+### What is the purpose of the let keyword
+
+The `let` statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the `var` keyword used to define a variable globally, or locally to an entire function regardless of block scope.
+
+Let's take an example to demonstrate the usage,
+
+```javascript
+let counter = 30;
+if (counter === 30) {
+let counter = 31;
+console.log(counter); // 31
+}
+console.log(counter); // 30 (because the variable in if block won't exist here)
+```
+
+### What is the difference between let and var
+
+You can list out the differences in a tabular format
+
+| var                                                   | let                         |
+| ----------------------------------------------------- | --------------------------- |
+| It is been available from the beginning of JavaScript | Introduced as part of ES6   |
+| It has function scope                                 | It has block scope          |
+| Variables will be hoisted                             | Hoisted but not initialized |
+
+Let's take an example to see the difference,
+
+```javascript
+function userDetails(username) {
+if (username) {
+console.log(salary); // undefined due to hoisting
+console.log(age); // ReferenceError: Cannot access 'age' before initialization
+let age = 30;
+var salary = 10000;
+}
+console.log(salary); //10000 (accessible due to function scope)
+console.log(age); //error: age is not defined(due to block scope)
+}
+userDetails("John");
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 23
+### Destructuring
+Destructuring is a JavaScript expression that allows us to extract data from arrays and objects and set them into new, distinct variables. Destructuring allows us to extract multiple properties, or items, from an array at a time
+
+```javascript
+Object Destructing
+const person = {
+ firstName: "Piyush",
+ lastName: "Sharma",
+}
+const { firstName, lastName } = person;
+console.log(firstName) // Piyush
+
+Array Destructing
+let greeting =['Good','Morning'];  
+let [g1, g2] = greeting;  
+console.log (g1, g2); // Good Morning
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+### 24
+### What is a rest parameter
+Javascript uses three dots `(...)` for both the rest and spread operations. But these two operators are not the same
+
+The rest operator is used to collect all the remaining element into array. The rest operator was needed because when function with multiple argument it help to handle it. Rest operator passed in the end of argument if we passed in the starting it will throw error.
+```javascript
+function myBio(firstName, lastName, ...otherInfo) {
+ return otherInfo;
+}
+myBio(“piyush”, "Sharma”, “Haryana”, "Web Developer", "Male");
+[ 'Haryana', 'Web Developer', 'Male' ]
+```
+For example, let's take a sum example to calculate on dynamic number of parameters,
+```javascript
+function sum(...args) {
+ let total = 0;
+ for (const i of args) {
+   total += i;
+ }
+ return total;
+}
+
+console.log(sum(1, 2)); //3
+console.log(sum(1, 2, 3)); //6
+console.log(sum(1, 2, 3, 4)); //13
+console.log(sum(1, 2, 3, 4, 5)); //15
+```
+
+### What is a spread operator
+
+The Spread operator helps us to copy and expand an expression where multiple argument are needed. It allows us the privilege to obtain a list of parameters from an array.
+
+```javascript
+function calculateSum(x, y, z) {
+ return x + y + z;
+}
+const numbers = [1, 2, 3];
+console.log(calculateSum(...numbers)); // 6
+//Second
+const value = [1,2,3]
+const newValue = [...value, 4,5,6];
+console.log(newValue) //[ 1, 2, 3, 4, 5, 6 ]
+```
+**[⬆ Back to Top](#table-of-contents)**
+
+### 25
+### What are enhanced object literals
+
+Object literals make it easy to quickly create objects with properties inside the curly braces. For example, it provides shorter syntax for common object property definition as below.
+
+```javascript
+//ES6
+var x = 10,
+ y = 20;
+obj = { x, y };
+console.log(obj); // {x: 10, y:20}
+//ES5
+var x = 10,
+ y = 20;
+obj = { x: x, y: y };
+console.log(obj); // {x: 10, y:20}
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 26
+### What are template literals
+
+Template literals or template strings are string literals allowing embedded expressions. These are enclosed by the back-tick (`) character instead of double or single quotes.
+In ES6, this feature enables using dynamic expressions as below,
+
+```javascript
+var greeting = `Welcome to JS World, Mr. ${firstName} ${lastName}.`;
+```
+
+In ES5, you need break string like below,
+
+```javascript
+var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.`
+```
+
+**Note:** You can use multi-line strings and string interpolation features with template literals.
+**[⬆ Back to Top](#table-of-contents)**
+### 27
+### What are lambda or arrow functions
+
+An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These functions are best suited for non-method functions, and they cannot be used as constructors.
 
 **[⬆ Back to Top](#table-of-contents)**
