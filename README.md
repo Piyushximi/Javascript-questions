@@ -20,14 +20,14 @@
 | 10| [ What are the three states of promise](#10) | | |
 | 11| [What is promise.all](#11) | | |
 | 12| [What is an async function or async/await](#12) | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| 13| [What is Hoisting](#13) | | |
+| 14| [](#14)| | |
+| 15| [](#15)| | |
+| 16| [](#16)| | |
+| 17| [](#17)| | |
+| 18| [](#18)| | |
+| 19| [](#19)| | |
+| 20| [](#20)| | |
 
 ### 1
 ### What is scope in javascript
@@ -298,5 +298,36 @@ An async function is a function declared with the async keyword, and the await k
 
 It is basically syntax sugar over ES2015 promises and generators.
 **[⬆ Back to Top](#table-of-contents)**
+
+### 13
+### What is Hoisting
+
+Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
+Let's take a simple example of variable hoisting,
+
+```javascript
+console.log(message); //output : undefined
+var message = "The variable Has been hoisted";
+```
+
+The above code looks like as below to the interpreter,
+
+```javascript
+var message;
+console.log(message);
+message = "The variable Has been hoisted";
+```
+
+In the same fashion, function declarations are hoisted too
+
+```javascript
+message("Good morning"); //Good morning
+
+function message(name) {
+console.log(name);
+}
+```
+
+This hoisting makes functions to be safely used in code before they are declared.
 
 **[⬆ Back to Top](#table-of-contents)**
