@@ -14,11 +14,20 @@
 | 4 | [What is the difference between == and === operators](#4) | | |
 | 5 | [What is a proto and prototype](#5) | | |
 | 6 | [What is Event Loop / call stack/ event queue](#6) | | |
-| 7 | [](#7) | | |
-| 8 | [](#8) | | |
-| 9 | [](#9) | | |
-| 10| [](#10) | | |
-
+| 7 | [What is a callback function](#7) | | |
+| 8 | [What is a promise](#8) | | |
+| 9 | [Why do you need a promise](#9) | | |
+| 10| [ What are the three states of promise](#10) | | |
+| 11| [What is promise.all](#11) | | |
+| 12| [What is an async function or async/await](#12) | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
 
 ### 1
 ### What is scope in javascript
@@ -182,7 +191,112 @@ Whenever the call stack receives an async function, it is moved into the Web API
 
 The event loop constantly checks whether or not the call stack is empty. Once the call stack is empty and there is a callback in the event queue, the event loop moves the callback into the call stack. But if there is a callback in the microtask queue as well, it is moved first. The microtask queue has a higher priority than the event queue.
 
+### 7
+### What is a callback function
+
+A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
+Let's take a simple example of how to use callback function
+
+```javascript
+function callbackFunction(name) {
+console.log("Hello " + name);
+}
+
+function outerFunction(callback) {
+let name = prompt("Please enter your name.");
+callback(name);
+}
+
+outerFunction(callbackFunction);
+```
+
 **[⬆ Back to Top](#table-of-contents)**
+
+### 8
+### What is a promise
+
+A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+
+The syntax of Promise creation looks like below,
+
+```javascript
+const promise = new Promise(function (resolve, reject) {
+// promise description
+});
+```
+
+The usage of a promise would be as below,
+
+```javascript
+const promise = new Promise(
+(resolve) => {
+setTimeout(() => {
+resolve("I'm a Promise!");
+}, 5000);
+},
+(reject) => {}
+);
+
+promise.then((value) => console.log(value));
+```
+
+The action flow of a promise will be as below,
+
+![Screenshot](https://github.com/sudheerj/javascript-interview-questions/blob/master/images/promises.png)
+
+### 9
+### Why do you need a promise?
+Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
+
+### 10
+### What are the three states of promise
+
+Promises have three states:
+
+1. **Pending:** This is an initial state of the Promise before an operation begins
+2. **Fulfilled:** This state indicates that the specified operation was completed.
+3. **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
+
+### 11
+### What is promise.all
+
+Promise.all is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,
+
+```javascript
+Promise.all([Promise1, Promise2, Promise3])
+.then(result) => {
+   console.log(result)
+})
+.catch(error => console.log(`Error in promises ${error}`))
+```
+
+**Note:** Remember that the order of the promises(output the result) is maintained as per input order.
+
+### 12
+### What is an async function or async/await
+
+An async function is a function declared with the `async` keyword which enables asynchronous, promise-based behavior to be written in a cleaner style by avoiding promise chains. These functions can contain zero or more `await` expressions.
+
+Let's take a below async function example,
+
+```javascript
+async function logger() {
+  let data = await fetch("http://someapi.com/users"); // pause until fetch returns
+  console.log(data);
+}
+logger();
+```
+### async/await
+Async await is a way to handle the promises
+
+when you have a function that return a promise you can handle the promise with `.then(()=>{})` and `.catch(()=>{})` and if you tell this is async operation put await in front of the function invocation and the invocation itself has to be inside a function that’s marked as async.
+
+An async function is a function declared with the async keyword, and the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behaviour
+- async and await make promises easier to write"
+- async makes a function return a Promise
+- await makes a function wait for a Promise
+
+It is basically syntax sugar over ES2015 promises and generators.
 **[⬆ Back to Top](#table-of-contents)**
 
 **[⬆ Back to Top](#table-of-contents)**
