@@ -21,7 +21,7 @@
 | 11| [What is promise.all](#11) | | |
 | 12| [What is an async function or async/await](#12) | | |
 | 13| [What is Hoisting](#13) | | |
-| 14| [](#14)| | |
+| 14| [What is closures](#14)| | |
 | 15| [](#15)| | |
 | 16| [](#16)| | |
 | 17| [](#17)| | |
@@ -329,5 +329,189 @@ console.log(name);
 ```
 
 This hoisting makes functions to be safely used in code before they are declared.
+
+### 14
+ ### What are closures
+
+A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
+
+1. Own scope where variables defined between its curly brackets
+2. Outer function’s variables
+3. Global variables
+
+Let's take an example of closure concept,
+
+```javascript
+function Welcome(name) {
+   var greetingInfo = function (message) {
+      console.log(message + " " + name);
+   };
+   return greetingInfo;
+}
+var myFunction = Welcome("John");
+myFunction("Welcome "); //Output: Welcome John
+myFunction("Hello Mr."); //output: Hello Mr.John
+```
+
+As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 15
+### What is the difference between Call, Apply and Bind
+
+The difference between Call, Apply and Bind can be explained with below examples,
+
+**Call:** The call() method invokes a function with a given `this` value and arguments provided one by one
+
+```javascript
+var employee1 = { firstName: "John", lastName: "Rodson" };
+var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+
+function invite(greeting1, greeting2) {
+  console.log(
+    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+  );
+}
+
+invite.call(employee1, "Hello", "How are you?"); // Hello John Rodson, How are you?
+invite.call(employee2, "Hello", "How are you?"); // Hello Jimmy Baily, How are you?
+```
+
+**Apply:** Invokes the function with a given `this` value and allows you to pass in arguments as an array
+
+```javascript
+var employee1 = { firstName: "John", lastName: "Rodson" };
+var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+
+function invite(greeting1, greeting2) {
+  console.log(
+    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+  );
+}
+
+invite.apply(employee1, ["Hello", "How are you?"]); // Hello John Rodson, How are you?
+invite.apply(employee2, ["Hello", "How are you?"]); // Hello Jimmy Baily, How are you?
+```
+
+**bind:** returns a new function, allowing you to pass any number of arguments
+
+```javascript
+var employee1 = { firstName: "John", lastName: "Rodson" };
+var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+
+function invite(greeting1, greeting2) {
+  console.log(
+    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+  );
+}
+
+var inviteEmployee1 = invite.bind(employee1);
+var inviteEmployee2 = invite.bind(employee2);
+inviteEmployee1("Hello", "How are you?"); // Hello John Rodson, How are you?
+inviteEmployee2("Hello", "How are you?"); // Hello Jimmy Baily, How are you?
+```
+
+Call and apply are pretty interchangeable. Both execute the current function immediately. You need to decide whether it’s easier to send in an array or a comma separated list of arguments. You can remember by treating Call is for **comma** (separated list) and Apply is for **Array**.
+
+Whereas Bind creates a new function that will have `this` set to the first parameter passed to bind().
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 16
+### What is the difference between Shallow and Deep copy
+
+There are two ways to copy an object,
+
+**Shallow Copy:**
+Shallow copy is a bitwise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+
+**Example**
+
+```javascript
+var empDetails = {
+ name: "John",
+ age: 25,
+ expertise: "Software Developer",
+};
+```
+
+to create a duplicate
+
+```javascript
+var empDetailsShallowCopy = empDetails; //Shallow copying!
+```
+
+if we change some property value in the duplicate one like this:
+
+```javascript
+empDetailsShallowCopy.name = "Johnson";
+```
+
+The above statement will also change the name of `empDetails`, since we have a shallow copy. That means we're losing the original data as well.
+
+**Deep copy:**
+A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
+
+**Example**
+
+```javascript
+var empDetails = {
+ name: "John",
+ age: 25,
+ expertise: "Software Developer",
+};
+```
+
+Create a deep copy by using the properties from the original object into new variable
+
+```javascript
+var empDetailsDeepCopy = {
+ name: empDetails.name,
+ age: empDetails.age,
+ expertise: empDetails.expertise,
+};
+```
+
+Now if you change `empDetailsDeepCopy.name`, it will only affect `empDetailsDeepCopy` & not `empDetails`
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 17
+### What is an event propagation
+
+Event propagation is a mechanism that defines how an event propagates or travels through the DOM tree to arrive at its target and what happens to it afterward.
+There are two possible ways in which an event can be propagated —
+
+1. Top to Bottom(Event Capturing)
+2. Bottom to Top (Event Bubbling)
+
+### What is event bubbling
+
+Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+```javascript
+// When the event is propagated from the target element to the root element, it is known as bubbling
+//Example: We have three divs — child, parent and grandparent.
+// The order of execution of the event handlers will be when we click on child
+// child > parent > grandparent. This is known as bubbling up of the event.
+document.querySelector('#grandparent').addEventListener('click', () => {
+   print('Grandparent click event')
+})
+```
+
+### What is event capturing
+
+Event capturing is a type of event propagation where the event is first captured by the outermost element, and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the innermost DOM element.
+```javascript
+//when it is propagated from the root element to the target element, it is known as capturing.
+//Example: We have three divs — child, parent and grandparent.
+// The order of execution of the event handlers will be when we click on child First,
+// the grandparent listener will be triggered, then the parent, and finally the child.
+// This is also known as trickling down of the event
+document.querySelector('#grandparent').addEventListener('click', () => {
+   print('Grandparent click event')
+}, true)
+```
+
 
 **[⬆ Back to Top](#table-of-contents)**
