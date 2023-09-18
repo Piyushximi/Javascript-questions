@@ -15,7 +15,7 @@
 | 3 | [Difference between null and undefined](#3) | 24| [Rest and Spread Operator](#24) |
 | 4 | [Difference between == and === operators](#4) | 25 | [object literals](#25) |
 | 5 | [Proto and prototype](#5) | 26 | [Template Literals](#26) |
-| 6 | [Event Loop / call stack/ event queue](#6) | 27| [Arrow functions /unary function / anonymous function ](#27) |
+| 6 | [Event Loop / call stack/ event queue](#6) | 27| [Arrow functions / unary function / anonymous function ](#27) |
 | 7 | [callback function](#7) | 28 | [Generator-Function / this](#28) |
 | 8 | [promise](#8) | | |
 | 9 | [Why do you need a promise](#9) | | |
@@ -834,7 +834,9 @@ var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.`
 ```
 
 **Note:** You can use multi-line strings and string interpolation features with template literals.
+
 **[⬆ Back to Top](#table-of-contents)**
+
 ### 27
 ### What are lambda or arrow functions
 
@@ -904,6 +906,8 @@ let add = (a, b) => a + b;
 
 add(10, 20); // 30
 ```
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### 28 
 ### Explain how `this` works in JavaScript?
