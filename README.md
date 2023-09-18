@@ -8,26 +8,26 @@
 
 | No. | Questions | No | Questions |
 | ----- | ------------------- | ---- | ------------------- |
-| 1 | [What is scope in javascript](#1) | 22| [ What is the purpose of the let and var keyword](#22) |
-| 2 | [What are the differences between primitives and non-primitives?](#2) | 23| [Destructuring](#23) |
-| 3 | [What is the difference between null and undefined](#3) | 24| [What is Rest and Spread Operator](#24) |
-| 4 | [What is the difference between == and === operators](#4) | 25 | [What are enhanced object literals](#25) |
-| 5 | [What is a proto and prototype](#5) | 26 | [What are Template Literals](#26) |
-| 6 | [What is Event Loop / call stack/ event queue](#6) | 27| [What are lambda or arrow functions](#27) |
-| 7 | [What is a callback function](#7) | | |
-| 8 | [What is a promise](#8) | | |
+| 1 | Scope in javascript](#1) | 22| [let and var keyword](#22) |
+| 2 | [Differences between primitives and non-primitives?](#2) | 23| [Destructuring](#23) |
+| 3 | [Difference between null and undefined](#3) | 24| [Rest and Spread Operator](#24) |
+| 4 | [Difference between == and === operators](#4) | 25 | [object literals](#25) |
+| 5 | [Proto and prototype](#5) | 26 | [Template Literals](#26) |
+| 6 | [Event Loop / call stack/ event queue](#6) | 27| [Arrow functions](#27) |
+| 7 | [callback function](#7) | | |
+| 8 | [promise](#8) | | |
 | 9 | [Why do you need a promise](#9) | | |
-| 10| [ What are the three states of promise](#10) | | |
-| 11| [What is promise.all and Promise.allSettled](#11) | | |
-| 12| [What is an async function or async/await](#12) | | |
-| 13| [What is Hoisting](#13) | | |
-| 14| [What is closures](#14)| | |
-| 15| [What is the difference between Call, Apply and Bind](#15)| | |
-| 16| [What is the difference between Shallow and Deep copy](#16)| | |
-| 17| [What is an event propagation and bubling and capturing](#17)| | |
-| 18| [What is a strict mode in javascript](#18)| | |
+| 10| [Three states of promise](#10) | | |
+| 11| [promise.all and Promise.allSettled](#11) | | |
+| 12| [async function or async/await](#12) | | |
+| 13| [Hoisting](#13) | | |
+| 14| [closures](#14)| | |
+| 15| [Difference between Call, Apply and Bind](#15)| | |
+| 16| [Difference between Shallow and Deep copy](#16)| | |
+| 17| [Event propagation and bubling and capturing](#17)| | |
+| 18| [strict mode in javascript](#18)| | |
 | 19| [map, filter reduce, foreach method](#19)| | |
-| 20| [What is the difference between an attribute and a property](#20)| | |
+| 20| [attribute and a property](#20)| | |
 | 21| [slice,splice, push , pop , shift , unshift methos](#21)| | |
 
 ### 1
