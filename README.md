@@ -18,7 +18,7 @@
 | 8 | [What is a promise](#8) | | |
 | 9 | [Why do you need a promise](#9) | | |
 | 10| [ What are the three states of promise](#10) | | |
-| 11| [What is promise.all](#11) | | |
+| 11| [What is promise.all and Promise.allSettled](#11) | | |
 | 12| [What is an async function or async/await](#12) | | |
 | 13| [What is Hoisting](#13) | | |
 | 14| [What is closures](#14)| | |
@@ -272,7 +272,31 @@ Promise.all([Promise1, Promise2, Promise3])
 ```
 
 **Note:** Remember that the order of the promises(output the result) is maintained as per input order.
+### Promise.allSettled() 
+Promise.allSettled() is typically used when you have multiple asynchronous tasks that are not dependent on one another to complete successfully, or you'd always like to know the result of each promise.
+In comparison, the Promise returned by Promise.all() may be more appropriate if the tasks are dependent on each other, or if you'd like to immediately reject upon any of them rejecting.
 
+```javascript
+const promises = [fetch('api1'), fetch('api2'), fetch('api3')];
+
+Promise.allSettled(promises)
+  .then(results => {
+    const successfulResults = [];
+    const failedResults = [];
+
+    results.forEach(result => {
+      if (result.status === 'fulfilled') {
+        successfulResults.push(result.value);
+      } else {
+        failedResults.push(result.reason);
+      }
+    });
+    
+    console.log('Successful API calls:', successfulResults);
+    console.log('Failed API calls:', failedResults);
+  })
+  .catch(error => console.log('Error:', error));
+```
 ### 12
 ### What is an async function or async/await
 
