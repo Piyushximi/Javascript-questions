@@ -8,7 +8,7 @@
 
 | No. | Questions | No | Questions |
 | ----- | ------------------- | ---- | ------------------- |
-| 1 | Scope in javascript](#1) | 22| [let and var keyword](#22) |
+| 1 | [Scope in javascript](#1) | 22| [let and var keyword](#22) |
 | 2 | [Differences between primitives and non-primitives?](#2) | 23| [Destructuring](#23) |
 | 3 | [Difference between null and undefined](#3) | 24| [Rest and Spread Operator](#24) |
 | 4 | [Difference between == and === operators](#4) | 25 | [object literals](#25) |
