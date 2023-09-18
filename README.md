@@ -33,6 +33,12 @@
 ### 1
 ### What is scope in javascript
 Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
+* **Global scope**
+    * Variable on function declaration is accessible everywhere through the entire code, including all functions and blocks
+* **Local scope**
+    * variable declared inside a function or block have local scope They are only accessible with the function or block where they are defined.
+* **Block scope**
+    * variable let, const declared within a block {} only access with init.
 
 
 **[⬆ Back to Top](#table-of-contents)**
