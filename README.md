@@ -18,7 +18,7 @@
 | 6 | [Event Loop / call stack/ event queue](#6) | 27| [Arrow functions / unary function / anonymous function ](#27) |
 | 7 | [callback function](#7) | 28 | [Generator-Function / this](#28) |
 | 8 | [promise](#8) | 29 | [WINDOW AND DOCUMENT OBJECT](#29) |
-| 9 | [Why do you need a promise](#9) | | |
+| 9 | [Why do you need a promise](#9) | 30 | [cookie, local storage and session storage](#30) |
 | 10| [Three states of promise](#10) | | |
 | 11| [promise.all and Promise.allSettled](#11) | | |
 | 12| [async function or async/await](#12) | | |
@@ -1075,5 +1075,57 @@ document.property_name;
 | It is the root level element in any web page  | It is the direct child of the window object. This is also known as Document Object Model(DOM) |
 | By default window object is available implicitly in the page | You can access it via window.document or document.  |
 | It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById(), getElementByTagName(), createElement() etc  |
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 30
+### What are the differences between cookie, local storage and session storage
+
+Below are some of the differences between cookie, local storage and session storage,
+
+| Feature                           | Cookie                             | Local storage    | Session storage     |
+| --------------------------------- | ---------------------------------- | ---------------- | ------------------- |
+| Accessed on client or server side | Both server-side & client-side     | client-side only | client-side only    |
+| Lifetime                          | As configured using Expires option | until deleted    | until tab is closed |
+| SSL support                       | Supported                          | Not supported    | Not supported       |
+| Maximum data size                 | 4KB                                | 5 MB             | 5MB                 |
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is the main difference between localStorage and sessionStorage
+
+LocalStorage is the same as SessionStorage but it persists the data even when the browser is closed and reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared when the page session ends.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How do you access web storage
+
+The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
+For example, you can read and write on local storage objects as below
+
+```javascript
+localStorage.setItem("logo", document.getElementById("logo").value);
+localStorage.getItem("logo");
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What are the methods available on session storage
+
+The session storage provided methods for reading, writing and clearing the session data
+
+```javascript
+// Save data to sessionStorage
+sessionStorage.setItem("key", "value");
+
+// Get saved data from sessionStorage
+let data = sessionStorage.getItem("key");
+
+// Remove saved data from sessionStorage
+sessionStorage.removeItem("key");
+
+// Remove all saved data from sessionStorage
+sessionStorage.clear();
+```
 
 **[⬆ Back to Top](#table-of-contents)**
