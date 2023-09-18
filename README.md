@@ -5,6 +5,8 @@
 
 ### Table of Contents
 
+ 
+
 
 | No. | Questions | No | Questions |
 | ----- | ------------------- | ---- | ------------------- |
@@ -13,8 +15,8 @@
 | 3 | [Difference between null and undefined](#3) | 24| [Rest and Spread Operator](#24) |
 | 4 | [Difference between == and === operators](#4) | 25 | [object literals](#25) |
 | 5 | [Proto and prototype](#5) | 26 | [Template Literals](#26) |
-| 6 | [Event Loop / call stack/ event queue](#6) | 27| [Arrow functions](#27) |
-| 7 | [callback function](#7) | | |
+| 6 | [Event Loop / call stack/ event queue](#6) | 27| [Arrow functions /unary function / anonymous function ](#27) |
+| 7 | [callback function](#7) | 28 | [Generator-Function / this](#28) |
 | 8 | [promise](#8) | | |
 | 9 | [Why do you need a promise](#9) | | |
 | 10| [Three states of promise](#10) | | |
@@ -840,7 +842,7 @@ An arrow function is a shorter syntax for a function expression and does not hav
 * Arrow functions reduce the size of the code.
 * The return statement and function brackets are optional for single-line functions.
 * It increases the readability of the code.
-* Arrow functions provide a lexical this binding. It means, they inherit the value of “this” from the enclosing scope. This feature can be advantageous when dealing with event listeners or callback functions where the value of “this” can be uncertain.
+* Arrow functions provide a lexical this binding. It means, they inherit the value of `this` from the enclosing scope. This feature can be advantageous when dealing with event listeners or callback functions where the value of `this` can be uncertain.
 
 **Limitations of Arrow Functions**
 * Arrow functions do not have the prototype property.
@@ -848,5 +850,125 @@ An arrow function is a shorter syntax for a function expression and does not hav
 * Arrow functions cannot be used as constructors.
 * These functions are anonymous and it is hard to debug the code.
 * Arrow functions cannot be used as generator functions that use the yield keyword to return multiple values over time.
+
+
+### What is a unary function?
+
+Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for single argument accepted by a function.
+
+```js
+// Unary function
+const unaryFunction = (number) => number + 10;
+
+console.log(unaryFunction(10)); // 20
+```
+
+### What is an anonymous function?
+
+An anonymous function is a function without a name. Anonymous functions are commonly assigned to a variable name or used as a callback function.
+
+**Example 01:** Anonymous function
+
+```js
+let show = function () {
+  console.log("Anonymous function");
+};
+show();
+```
+
+**Example 02:** anonymous functions as arguments
+
+```js
+setTimeout(function () {
+  console.log("Execute later after 1 second");
+}, 1000);
+```
+
+**Example 03:** Immediately invoked function execution
+
+```js
+const person = {
+  firstName: "Ayaan",
+  lastName: "Memon"
+};
+
+(function () {
+  console.log(person.firstName + " " + person.lastName); // Ayaan Memon
+})(person);
+```
+
+**Example 04:** Arrow functions
+
+```js
+let add = (a, b) => a + b;
+
+add(10, 20); // 30
+```
+
+### 28 
+### Explain how `this` works in JavaScript?
+
+The `this` keyword refers to an `object`. Which object depends on how this is being invoked (used or called). The `this` keyword refers to different objects depending on how it is used.
+
+* In an object method, `this` refers to the object.
+* Alone, `this` refers to the global object.
+* In a function, `this` refers to the global object.
+* In a function, in strict mode, `this` is `undefined`.
+* In an event, `this` refers to the element that received the event.
+* Methods like `call()`, `apply()`, and `bind()` can refer `this` to any object.
+
+**Example:**
+
+```js
+// this keyword in object method
+
+const person = {
+  firstName: "Nirupama",
+  lastName: "Randhawa",
+  getName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+};
+```
+
+### What is generator in JS?
+
+**Generator-Function:**
+
+A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the `yield` keyword rather than `return`. The `yield` statement suspends function\'s execution and sends a value back to caller, but retains enough state to enable function to resume where it is left off. When resumed, the function continues execution immediately after the last `yield` run.
+
+**Syntax:**
+
+```js
+function* gen() {
+     yeild 1;
+     yeild 2;
+     ...
+     ...
+}
+```
+
+**Generator-Object:**
+
+Generator functions return a generator object. Generator objects are used either by calling the next method on the generator object or using the generator object in a "for in" loop.
+
+**Example:**
+
+```js
+// Generate Function
+
+function* fun() {
+  yield 10;
+  yield 20;
+  yield 30;
+}
+
+// Calling the Generate Function
+var gen = fun();
+gen.next().value; // 10
+gen.next().value; // 20
+gen.next().value; // 30
+```
+
 
 **[⬆ Back to Top](#table-of-contents)**
