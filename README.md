@@ -157,6 +157,7 @@ There are few more differences,
 | ECMAScript | Introduced in ES6                                            | Introduced in ES5                                          |
 | Usage      | Frequently used                                              | Rarely used                                                |
 
+**[⬆ Back to Top](#table-of-contents)**
 ### 6
 ### What is an event loop
 
@@ -200,6 +201,7 @@ Whenever the call stack receives an async function, it is moved into the Web API
 
 The event loop constantly checks whether or not the call stack is empty. Once the call stack is empty and there is a callback in the event queue, the event loop moves the callback into the call stack. But if there is a callback in the microtask queue as well, it is moved first. The microtask queue has a higher priority than the event queue.
 
+**[⬆ Back to Top](#table-of-contents)**
 ### 7
 ### What is a callback function
 
@@ -252,6 +254,7 @@ promise.then((value) => console.log(value));
 The action flow of a promise will be as below,
 
 ![Screenshot](https://github.com/sudheerj/javascript-interview-questions/blob/master/images/promises.png)
+**[⬆ Back to Top](#table-of-contents)**
 
 ### 9
 ### Why do you need a promise?
@@ -266,6 +269,7 @@ Promises have three states:
 2. **Fulfilled:** This state indicates that the specified operation was completed.
 3. **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
 
+**[⬆ Back to Top](#table-of-contents)**
 ### 11
 ### What is promise.all
 
@@ -305,6 +309,7 @@ Promise.allSettled(promises)
   })
   .catch(error => console.log('Error:', error));
 ```
+**[⬆ Back to Top](#table-of-contents)**
 ### 12
 ### What is an async function or async/await
 
@@ -363,6 +368,7 @@ console.log(name);
 
 This hoisting makes functions to be safely used in code before they are declared.
 
+**[⬆ Back to Top](#table-of-contents)**
 ### 14
  ### What are closures
 
@@ -591,7 +597,6 @@ const numbers = [1, 2, 3, 4];
 const evens = numbers.filter(item => item % 2 === 0);
 console.log(evens); // [2, 4]
 ```
-
 **reduce():**  is a higher order function used in data manipulation that is used to reduce the array to a single value. Its passes two arguments one function(which includes accumulator and current value) and another initial value
 ```javascript
 const numbers = [1, 2, 3, 4];
