@@ -1097,6 +1097,15 @@ Below are some of the differences between cookie, local storage and session stor
 
 **[⬆ Back to Top](#table-of-contents)**
 
+
+### What is a Cookie
+A cookie is a piece of data that is stored on your computer to be accessed by your browser. Cookies are saved as key/value pairs.
+For example, you can create a cookie named username as below,
+
+```javascript
+document.cookie = "username=John";
+```
+    
 ### What is the main difference between localStorage and sessionStorage
 
 LocalStorage is the same as SessionStorage but it persists the data even when the browser is closed and reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared when the page session ends.
