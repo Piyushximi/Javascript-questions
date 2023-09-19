@@ -1207,7 +1207,7 @@ let obj = [
 const sumValues = obj.reduce((accumulator, object) => {
   return accumulator + object.amount;
 }, 0);
-console.log(sumValues)
+console.log(sumValues) //100
 ```
 
 ###	Fetch data from api, using function 
@@ -1244,7 +1244,7 @@ function convert(num) {
   return result;
 }
 
-console.log(convert(1991))
+console.log(convert(1991)) //MCMXCI
 ```
 
 ### How to build a Roman Numeral to Integer Function in JavaScript
