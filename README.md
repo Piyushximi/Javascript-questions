@@ -1292,3 +1292,106 @@ for (let i = 0; i < s.length; i++) {
 romanToInt(s)
 
 ```
+### Remove 3rd element from the array
+
+```js
+const thisArray = ["a1","a2","a3","a4","a5","a6","a7"]
+
+var i = thisArray.length;
+
+const newArr = thisArray.filter((item, i) => {
+  return (i + 1) % 3
+  }
+)
+console.log(newArr);
+```
+
+### Find Even and Odd number in an array without using javascript method ?
+
+```js
+const numbers = [1,2,3,4,5,6,7,8,9,10];
+const evenNumbers=[];
+const oddNumbers=[];
+
+function findOddEvenNumbers(arr) {
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] % 2 ===0) {
+      evenNumbers.push(arr[i]);
+    }
+
+    if(arr[i] % 2 !==0){
+      oddNumbers.push(arr[i])
+    }
+  }
+  console.log("Odd number :", oddNumbers);
+  console.log("Even number :", evenNumbers);
+}
+
+findOddEvenNumbers(numbers)
+```
+
+### How to concate two arrays in javascript without javascript methods ?
+
+```js
+const arrayOne=[1,2,3,4];
+const arrayTwo=[5,6,7,8];
+
+const concateArrays = (arr1, arr2) => {
+  const newArray=[];
+  for(let i=0; i<arr1.length;i++){
+    newArray.push(arr1[i]);
+  }
+  for(let i=0; i<arr2.length; i++){
+    newArray.push(arr2[i]);
+  }
+  console.log(newArray);
+}
+
+concateArrays(arrayOne, arrayTwo);
+```
+
+### Sort an array in ascending order and descending order without using JavaScript methods ?
+
+```js
+//Descending order
+const numbers = [10,1,8,3,7,22,88,44,909,34,567,34,3344,];
+
+for(let i=0; i<numbers.length; i++){
+  for(let j=i+1; j<numbers.length; j++){
+    if(numbers[i] < numbers[j]){
+      let temp = numbers[i];
+      numbers[i]=numbers[j];
+      numbers[j]=temp;
+    }
+  }
+}
+console.log(numbers);
+
+// Ascending order
+const numbers = [10,1,8,3,7,22,88,44,909,34,567,34,3344,];
+
+for(let i=0; i<numbers.length; i++){
+  for(let j=i+1; j<numbers.length; j++){
+    if(numbers[i] > numbers[j]){
+      let temp = numbers[i];
+      numbers[i]=numbers[j];
+      numbers[j]=temp;
+    }
+  }
+}
+console.log(numbers);
+```
+
+### Find the smallest number in an array without using javascript methods ?
+
+```js
+const numbers =[99,88,77,2,66,3,44,33,22,11];
+let minNumber = numbers[0];
+
+for(let i=0; i<numbers.length; i++){
+if(numbers[i] < minNumber){
+minNumber=numbers[i];
+}
+}
+console.log(minNumber);
+```
