@@ -32,6 +32,7 @@
 | 20| [attribute and a property](#20)| | |
 | 21| [slice,splice, push , pop , shift , unshift methos](#21)| | |
 
+### [coding Exercise](#coding)
 ### 1
 ### What is scope in javascript
 Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
@@ -1165,3 +1166,63 @@ const firstOrder = () => console.log("I am a first order function!");
 
 **[⬆ Back to Top](#table-of-contents)**
 
+
+### coding
+
+### Create a button and onclick of the button the first time value should increment by 1 and at the second click value should  decrement by 1, default button value is 100
+
+```js
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [value, setvalue] = useState(100);
+  
+  const handleButtonClick = () => {
+    if (value % 2 === 0) {
+      setvalue((prevState) => prevState + 1);
+    } else {
+      setvalue((prevState) => prevState - 1);
+    }
+
+  };
+
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      {value}
+      <button onClick={handleButtonClick}> click me</button>
+    </div>
+  );
+}
+```
+
+### Sum of amount from array object 
+```js
+let obj = [
+  {id: 1, amount: 20},
+  {id: 3, amount: 30},
+  {id: 2, amount: 50}
+]
+const sumValues = obj.reduce((accumulator, object) => {
+  return accumulator + object.amount;
+}, 0);
+console.log(sumValues)
+```
+
+### 3.	Fetch data from api, using function 
+```js
+async function getapi(){
+    const response = await fetch(url);
+    var data = await response.json();
+    console.log(data, "data")
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(
+    //   (data) => console.log(data, "daaata")
+    // );
+    }
+  useEffect(()=> {
+    getapi()
+  })
+```
