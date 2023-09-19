@@ -870,6 +870,27 @@ const unaryFunction = (number) => number + 10;
 console.log(unaryFunction(10)); // 20
 ```
 
+ ### What is a higher order function
+
+Higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
+
+```javascript
+const firstOrderFunc = () =>
+  console.log("Hello, I am a First order function");
+const higherOrder = (ReturnFirstOrderFunc) => ReturnFirstOrderFunc();
+higherOrder(firstOrderFunc);
+```
+
+### What is a first order function
+
+First-order function is a function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
+
+```javascript
+const firstOrder = () => console.log("I am a first order function!");
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+    
 ### What is an anonymous function?
 
 An anonymous function is a function without a name. Anonymous functions are commonly assigned to a variable name or used as a callback function.
