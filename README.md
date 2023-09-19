@@ -19,7 +19,7 @@
 | 7 | [callback function](#7) | 28 | [Generator-Function / this](#28) |
 | 8 | [promise](#8) | 29 | [WINDOW AND DOCUMENT OBJECT](#29) |
 | 9 | [Why do you need a promise](#9) | 30 | [cookie, local storage and session storage](#30) |
-| 10| [Three states of promise](#10) | | |
+| 10| [Three states of promise](#10) | 31 | [High order function](#what-is-a-higher-order-function) |
 | 11| [promise.all and Promise.allSettled](#11) | | |
 | 12| [async function or async/await](#12) | | |
 | 13| [Hoisting](#13) | | |
@@ -869,27 +869,6 @@ const unaryFunction = (number) => number + 10;
 
 console.log(unaryFunction(10)); // 20
 ```
-
- ### What is a higher order function
-
-Higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
-
-```javascript
-const firstOrderFunc = () =>
-  console.log("Hello, I am a First order function");
-const higherOrder = (ReturnFirstOrderFunc) => ReturnFirstOrderFunc();
-higherOrder(firstOrderFunc);
-```
-
-### What is a first order function
-
-First-order function is a function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
-
-```javascript
-const firstOrder = () => console.log("I am a first order function!");
-```
-
-**[⬆ Back to Top](#table-of-contents)**
     
 ### What is an anonymous function?
 
@@ -1164,3 +1143,25 @@ sessionStorage.clear();
 ```
 
 **[⬆ Back to Top](#table-of-contents)**
+
+### What is a higher order function
+
+Higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
+
+```javascript
+const firstOrderFunc = () =>
+  console.log("Hello, I am a First order function");
+const higherOrder = (ReturnFirstOrderFunc) => ReturnFirstOrderFunc();
+higherOrder(firstOrderFunc);
+```
+
+### What is a first order function
+
+First-order function is a function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
+
+```javascript
+const firstOrder = () => console.log("I am a first order function!");
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
