@@ -1210,7 +1210,7 @@ const sumValues = obj.reduce((accumulator, object) => {
 console.log(sumValues)
 ```
 
-### 3.	Fetch data from api, using function 
+###	Fetch data from api, using function 
 ```js
 async function getapi(){
     const response = await fetch(url);
@@ -1227,11 +1227,29 @@ async function getapi(){
   })
 ```
 
+### Write a function to convert integer to roman numerals in javascript
+
+```js
+function convert(num) {
+
+  var result = '';
+  var rom = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  var ara = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  for (var x = 0; x < rom.length; x++) {
+    while (num >= ara[x]) {
+      result += rom[x];
+      num -= ara[x];
+    }
+  }
+  return result;
+}
+
+console.log(convert(1991))
+```
+
 ### How to build a Roman Numeral to Integer Function in JavaScript
 
 ```js
-
-
 const valArr = {
   I: 1,
   V: 5,
