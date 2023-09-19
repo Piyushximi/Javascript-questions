@@ -1169,6 +1169,13 @@ const firstOrder = () => console.log("I am a first order function!");
 
 ### coding
 
+* [sum of amount](#sum-of-amount-from-array-object)
+* [Remove 3rd item from array](#remove-3rd-element-from-the-array)
+* [Even or odd in array](#find-even-and-odd-number-in-an-array-without-using-javascript-method-)
+* [Concate two array](#how-to-concate-two-arrays-in-javascript-without-javascript-methods-)
+* [Ascending and descending](#sort-an-array-in-ascending-order-and-descending-order-without-using-javascript-methods-)
+* [Smallest number](#find-the-smallest-number-in-an-array-without-using-javascript-methods-)
+
 ### Create a button and onclick of the button the first time value should increment by 1 and at the second click value should  decrement by 1, default button value is 100
 
 ```js
