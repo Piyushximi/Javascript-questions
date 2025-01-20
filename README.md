@@ -759,48 +759,23 @@ console.log (g1, g2); // Good Morning
 
 **[⬆ Back to Top](#table-of-contents)**
 ### 24
-### What is a rest parameter
-Javascript uses three dots `(...)` for both the rest and spread operations. But these two operators are not the same
-
-The rest operator is used to collect all the remaining element into array. The rest operator was needed because when function with multiple argument it help to handle it. Rest operator passed in the end of argument if we passed in the starting it will throw error.
-```javascript
-function myBio(firstName, lastName, ...otherInfo) {
- return otherInfo;
-}
-myBio(“piyush”, "Sharma”, “Haryana”, "Web Developer", "Male");
-[ 'Haryana', 'Web Developer', 'Male' ]
-```
-For example, let's take a sum example to calculate on dynamic number of parameters,
-```javascript
-function sum(...args) {
- let total = 0;
- for (const i of args) {
-   total += i;
- }
- return total;
-}
-
-console.log(sum(1, 2)); //3
-console.log(sum(1, 2, 3)); //6
-console.log(sum(1, 2, 3, 4)); //13
-console.log(sum(1, 2, 3, 4, 5)); //15
-```
+## REST and Spread Operator
+The Rest and Spread operators are features introduced in ES6 in JavaScript that make working with arrays and objects more convenient.
+Both uses three dots `(...)`
+### What is a REST Operator
+The rest operator is used to collect all the remaining element into array. It allows a function to accept an indefinite number of arguments as an array. It's also denoted by three dots
+Rest operator passed in the end of argument if we passed in the starting it will throw error.
 
 ### What is a spread operator
-
 The Spread operator helps us to copy and expand an expression where multiple argument are needed. It allows us the privilege to obtain a list of parameters from an array.
 
-```javascript
-function calculateSum(x, y, z) {
- return x + y + z;
-}
-const numbers = [1, 2, 3];
-console.log(calculateSum(...numbers)); // 6
-//Second
-const value = [1,2,3]
-const newValue = [...value, 4,5,6];
-console.log(newValue) //[ 1, 2, 3, 4, 5, 6 ]
-```
+|### REST Operator Example	        |### Spread Operator Example|
+| --------------------------------- | ------------------- |
+|   <pre>function myBio(firstName, lastName, ...otherInfo) {</br>      return otherInfo; </br> }</br>console.log(myBio("piyush", "Sharma", "Haryana", "Web Developer"))</br>//Output [ 'Haryana', 'Web Developer' ]</pre>| <pre>function calculateSum(x, y, z) {</br> return x + y + z; </br>}</br>const numbers = [1, 2, 3]; </br>console.log(calculateSum(...numbers)); // 6
+ </pre> |
+| <pre>Sum to calculate on dynamic number of parameters</br>function sum(...args) {</br>let total = 0;</br>for (const i of args) {</br>   total += i;</br>}</br> return total; </br>}</br>console.log(sum(1, 2)); //3</br>console.log(sum(1, 2, 3)); //6</br>console.log(sum(1, 2, 3, 4)); //13</pre> | <pre>const value = [1,2,3]</br>const newValue = [...value, 4,5,6];</br>console.log(newValue) //[ 1, 2, 3, 4, 5, 6 ]
+</pre> |
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 25
